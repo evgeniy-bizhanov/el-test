@@ -25,7 +25,7 @@ struct Repository: Decodable {
     /// Url of the repository
     let url: String
     
-    let description: String
+    let description: String?
     let score: Double
     
     /// Owner of the repository
@@ -53,8 +53,8 @@ extension Repository {
         fullName = try container.decode(String.self, forKey: .fullName)
         isPrivate = try container.decode(Bool.self, forKey: .isPrivate)
         url = try container.decode(String.self, forKey: .url)
-        description = try container.decode(String.self, forKey: .description)
-        score = try container.decode(Double.self, forKey: .score)
+        description = try? container.decode(String.self, forKey: .description)
+        score = (try? container.decode(Double.self, forKey: .score)) ?? 0
         owner = try container.decode(User.self, forKey: .owner)
     }
 }

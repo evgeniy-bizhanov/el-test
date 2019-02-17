@@ -22,6 +22,13 @@
 		7AFF076322197D340082B7DC /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076022197D340082B7DC /* RequestRouter.swift */; };
 		7AFF076422197D340082B7DC /* AbstractRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076122197D340082B7DC /* AbstractRequestManager.swift */; };
 		7AFF076622197E900082B7DC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076522197E900082B7DC /* RequestManager.swift */; };
+		7AFF0780221983F40082B7DC /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0779221983F40082B7DC /* AppAssembler.swift */; };
+		7AFF0781221983F40082B7DC /* NetworkingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF077A221983F40082B7DC /* NetworkingAssembler.swift */; };
+		7AFF0782221983F40082B7DC /* RepositoriessAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF077B221983F40082B7DC /* RepositoriessAssembler.swift */; };
+		7AFF0786221983F40082B7DC /* AbstractModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF077F221983F40082B7DC /* AbstractModuleBuilder.swift */; };
+		7AFF0789221984880082B7DC /* RequestFactoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0788221984880082B7DC /* RequestFactoryHelper.swift */; };
+		7AFF078B221985400082B7DC /* RepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF078A221985400082B7DC /* RepositoriesPresenter.swift */; };
+		7AFF078D221986BC0082B7DC /* RepositoriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF078C221986BC0082B7DC /* RepositoriesBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,13 @@
 		7AFF076022197D340082B7DC /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 		7AFF076122197D340082B7DC /* AbstractRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestManager.swift; sourceTree = "<group>"; };
 		7AFF076522197E900082B7DC /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		7AFF0779221983F40082B7DC /* AppAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		7AFF077A221983F40082B7DC /* NetworkingAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAssembler.swift; sourceTree = "<group>"; };
+		7AFF077B221983F40082B7DC /* RepositoriessAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriessAssembler.swift; sourceTree = "<group>"; };
+		7AFF077F221983F40082B7DC /* AbstractModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractModuleBuilder.swift; sourceTree = "<group>"; };
+		7AFF0788221984880082B7DC /* RequestFactoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFactoryHelper.swift; sourceTree = "<group>"; };
+		7AFF078A221985400082B7DC /* RepositoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesPresenter.swift; sourceTree = "<group>"; };
+		7AFF078C221986BC0082B7DC /* RepositoriesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesBuilder.swift; sourceTree = "<group>"; };
 		DCAC59756A2E67A7197B6B08 /* Pods-el-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-el-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-el-test/Pods-el-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +93,7 @@
 		7A2B508E221910E1002E9B08 /* el-test */ = {
 			isa = PBXGroup;
 			children = (
+				7AFF0777221983F40082B7DC /* Assembly */,
 				7A2B50D022191282002E9B08 /* AppDelegate */,
 				7AFF07532219204A0082B7DC /* Business */,
 				7A2B50CE22191282002E9B08 /* Core */,
@@ -91,6 +106,7 @@
 		7A2B50CE22191282002E9B08 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7AFF0787221984880082B7DC /* Helper */,
 				7AFF075E22197D340082B7DC /* Networking */,
 			);
 			path = Core;
@@ -128,6 +144,8 @@
 			children = (
 				7AFF074E22191C810082B7DC /* Repositories.storyboard */,
 				7AFF075022191E020082B7DC /* RepositoriesViewController.swift */,
+				7AFF078A221985400082B7DC /* RepositoriesPresenter.swift */,
+				7AFF078C221986BC0082B7DC /* RepositoriesBuilder.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -168,6 +186,33 @@
 				7AFF076122197D340082B7DC /* AbstractRequestManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		7AFF0777221983F40082B7DC /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				7AFF0778221983F40082B7DC /* Assemblers */,
+				7AFF077F221983F40082B7DC /* AbstractModuleBuilder.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		7AFF0778221983F40082B7DC /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				7AFF0779221983F40082B7DC /* AppAssembler.swift */,
+				7AFF077A221983F40082B7DC /* NetworkingAssembler.swift */,
+				7AFF077B221983F40082B7DC /* RepositoriessAssembler.swift */,
+			);
+			path = Assemblers;
+			sourceTree = "<group>";
+		};
+		7AFF0787221984880082B7DC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7AFF0788221984880082B7DC /* RequestFactoryHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DC0E7A36BA42B133B511953D /* Pods */ = {
@@ -311,15 +356,22 @@
 			files = (
 				7AFF075D22197C8D0082B7DC /* RepositoriesRequestable.swift in Sources */,
 				7AFF076222197D340082B7DC /* ResponseCodable.swift in Sources */,
+				7AFF0782221983F40082B7DC /* RepositoriessAssembler.swift in Sources */,
+				7AFF078D221986BC0082B7DC /* RepositoriesBuilder.swift in Sources */,
 				7AFF0756221920810082B7DC /* RepositoriesSearchResponse.swift in Sources */,
 				7AFF076422197D340082B7DC /* AbstractRequestManager.swift in Sources */,
 				7A2B50DB22191282002E9B08 /* AppDelegate.swift in Sources */,
+				7AFF0789221984880082B7DC /* RequestFactoryHelper.swift in Sources */,
 				7AFF075122191E020082B7DC /* RepositoriesViewController.swift in Sources */,
+				7AFF078B221985400082B7DC /* RepositoriesPresenter.swift in Sources */,
+				7AFF0786221983F40082B7DC /* AbstractModuleBuilder.swift in Sources */,
 				7AFF0759221927810082B7DC /* User.swift in Sources */,
 				7AFF076622197E900082B7DC /* RequestManager.swift in Sources */,
+				7AFF0780221983F40082B7DC /* AppAssembler.swift in Sources */,
 				7A2B50E022191282002E9B08 /* AppConfig.swift in Sources */,
 				7AFF075B22197B960082B7DC /* Repository.swift in Sources */,
 				7AFF076322197D340082B7DC /* RequestRouter.swift in Sources */,
+				7AFF0781221983F40082B7DC /* NetworkingAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

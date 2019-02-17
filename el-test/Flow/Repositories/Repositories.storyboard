@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Github Repositories-->
+        <!--View Controller-->
         <scene sceneID="WyW-7l-ESs">
             <objects>
-                <viewController id="gkB-Kd-Roc" sceneMemberID="viewController">
+                <viewController id="gkB-Kd-Roc" customClass="RepositoriesViewController" customModule="el_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="apS-Tr-eYY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,8 +35,13 @@
                     <navigationItem key="navigationItem" title="Github Repositories" id="GIH-Ts-JSy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFN-Kk-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="ypd-JR-REr" customClass="RepositoriesBuilder" customModule="el_test" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewController" destination="gkB-Kd-Roc" id="bnP-kO-MAA"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="991.20000000000005" y="69.715142428785612"/>
+            <point key="canvasLocation" x="983" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zK1-ZH-gCO">
