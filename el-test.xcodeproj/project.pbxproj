@@ -17,6 +17,11 @@
 		7AFF0756221920810082B7DC /* RepositoriesSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */; };
 		7AFF0759221927810082B7DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0758221927810082B7DC /* User.swift */; };
 		7AFF075B22197B960082B7DC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075A22197B960082B7DC /* Repository.swift */; };
+		7AFF075D22197C8D0082B7DC /* RepositoriesRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */; };
+		7AFF076222197D340082B7DC /* ResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075F22197D340082B7DC /* ResponseCodable.swift */; };
+		7AFF076322197D340082B7DC /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076022197D340082B7DC /* RequestRouter.swift */; };
+		7AFF076422197D340082B7DC /* AbstractRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076122197D340082B7DC /* AbstractRequestManager.swift */; };
+		7AFF076622197E900082B7DC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF076522197E900082B7DC /* RequestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,11 @@
 		7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSearchResponse.swift; sourceTree = "<group>"; };
 		7AFF0758221927810082B7DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7AFF075A22197B960082B7DC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesRequestable.swift; sourceTree = "<group>"; };
+		7AFF075F22197D340082B7DC /* ResponseCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
+		7AFF076022197D340082B7DC /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		7AFF076122197D340082B7DC /* AbstractRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestManager.swift; sourceTree = "<group>"; };
+		7AFF076522197E900082B7DC /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		DCAC59756A2E67A7197B6B08 /* Pods-el-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-el-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-el-test/Pods-el-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +91,7 @@
 		7A2B50CE22191282002E9B08 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7AFF075E22197D340082B7DC /* Networking */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 		7AFF07532219204A0082B7DC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				7AFF076522197E900082B7DC /* RequestManager.swift */,
 				7AFF07572219276F0082B7DC /* Entities */,
 				7AFF0754221920630082B7DC /* Repositories */,
 			);
@@ -133,8 +145,9 @@
 		7AFF0754221920630082B7DC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */,
 				7AFF075A22197B960082B7DC /* Repository.swift */,
+				7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */,
+				7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -145,6 +158,16 @@
 				7AFF0758221927810082B7DC /* User.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		7AFF075E22197D340082B7DC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7AFF075F22197D340082B7DC /* ResponseCodable.swift */,
+				7AFF076022197D340082B7DC /* RequestRouter.swift */,
+				7AFF076122197D340082B7DC /* AbstractRequestManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		DC0E7A36BA42B133B511953D /* Pods */ = {
@@ -286,12 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFF075D22197C8D0082B7DC /* RepositoriesRequestable.swift in Sources */,
+				7AFF076222197D340082B7DC /* ResponseCodable.swift in Sources */,
 				7AFF0756221920810082B7DC /* RepositoriesSearchResponse.swift in Sources */,
+				7AFF076422197D340082B7DC /* AbstractRequestManager.swift in Sources */,
 				7A2B50DB22191282002E9B08 /* AppDelegate.swift in Sources */,
 				7AFF075122191E020082B7DC /* RepositoriesViewController.swift in Sources */,
 				7AFF0759221927810082B7DC /* User.swift in Sources */,
+				7AFF076622197E900082B7DC /* RequestManager.swift in Sources */,
 				7A2B50E022191282002E9B08 /* AppConfig.swift in Sources */,
 				7AFF075B22197B960082B7DC /* Repository.swift in Sources */,
+				7AFF076322197D340082B7DC /* RequestRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
