@@ -8,11 +8,17 @@
 
 import UIKit
 
-protocol RepositoriesOutput: class {}
+protocol RepositoriesOutput: class {
+    func reloadView()
+}
 
 final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     
     // MARK: - IBOutlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     // MARK: - Models
     // MARK: - Services
     // MARK: - Properties
@@ -27,6 +33,16 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
         input?.didLoad()
+        
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        tableView.dataSource = input as? UITableViewDataSource
+    }
+    
+    func reloadView() {
+        tableView.reloadData()
     }
     
     

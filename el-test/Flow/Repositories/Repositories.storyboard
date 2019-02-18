@@ -21,6 +21,49 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-cv-q16">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCell" rowHeight="44" id="rNB-bg-1YP" customClass="RepositoryCell" customModule="el_test" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rNB-bg-1YP" id="Ev1-rC-M0O">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRK-aO-JeS">
+                                                    <rect key="frame" x="15" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-UC-4Ks">
+                                                    <rect key="frame" x="322" y="13" width="38" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6k-nT-FYZ">
+                                                    <rect key="frame" x="271.5" y="13" width="42.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HRK-aO-JeS" firstAttribute="centerY" secondItem="Ev1-rC-M0O" secondAttribute="centerY" id="4vx-qa-PX4"/>
+                                                <constraint firstItem="P6k-nT-FYZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HRK-aO-JeS" secondAttribute="trailing" constant="8" id="ANZ-Sv-74t"/>
+                                                <constraint firstItem="HRK-aO-JeS" firstAttribute="leading" secondItem="Ev1-rC-M0O" secondAttribute="leadingMargin" id="EPg-Zu-i2c"/>
+                                                <constraint firstItem="P6k-nT-FYZ" firstAttribute="centerY" secondItem="Ev1-rC-M0O" secondAttribute="centerY" id="LQn-7x-HLK"/>
+                                                <constraint firstItem="LOd-UC-4Ks" firstAttribute="trailing" secondItem="Ev1-rC-M0O" secondAttribute="trailingMargin" id="NMY-vW-Jtg"/>
+                                                <constraint firstItem="LOd-UC-4Ks" firstAttribute="centerY" secondItem="Ev1-rC-M0O" secondAttribute="centerY" id="Ude-Q3-Kj9"/>
+                                                <constraint firstItem="LOd-UC-4Ks" firstAttribute="leading" secondItem="P6k-nT-FYZ" secondAttribute="trailing" constant="8" id="rS8-t7-9ce"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="score" destination="LOd-UC-4Ks" id="yz3-OT-zxa"/>
+                                            <outlet property="title" destination="HRK-aO-JeS" id="uLR-4Q-2Yb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,6 +76,9 @@
                         <viewLayoutGuide key="safeArea" id="q9x-s9-J87"/>
                     </view>
                     <navigationItem key="navigationItem" title="Github Repositories" id="GIH-Ts-JSy"/>
+                    <connections>
+                        <outlet property="tableView" destination="iHO-cv-q16" id="Skh-mF-PEY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFN-Kk-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="ypd-JR-REr" customClass="RepositoriesBuilder" customModule="el_test" customModuleProvider="target">
@@ -41,7 +87,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="983" y="70"/>
+            <point key="canvasLocation" x="981.60000000000002" y="69.715142428785612"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zK1-ZH-gCO">
