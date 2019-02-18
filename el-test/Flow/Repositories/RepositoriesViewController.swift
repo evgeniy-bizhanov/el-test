@@ -27,6 +27,10 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     
     
     // MARK: - Fields
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
     // MARK: - IBActions
     // MARK: - Functions
     
@@ -35,11 +39,24 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
         input?.didLoad()
         
         setupTableView()
+        setupSearchController()
     }
     
     func setupTableView() {
         tableView.dataSource = input as? UITableViewDataSource
     }
+    
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск..."
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    
+    // MARK: - RepositoriesOutput
     
     func reloadView() {
         tableView.reloadData()
@@ -48,3 +65,18 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     
     // MARK: - Initializers
 }
+
+extension RepositoriesViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        input?.search(query: searchController.searchBar.text)
+    }
+}
+
+extension RepositoriesViewController: UISearchControllerDelegate {
+
+    func didDismissSearchController(_ searchController: UISearchController) {
+        input?.didEndSearching()
+    }
+}
+
+

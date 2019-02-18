@@ -11,6 +11,8 @@ import UIKit
 
 protocol RepositoriesInput {
     func didLoad()
+    func search(query: String?)
+    func didEndSearching()
 }
 
 final class RepositoriesPresenter: NSObject, RepositoriesInput {
@@ -28,6 +30,7 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
     private weak var output: RepositoriesOutput?
     private let group = DispatchGroup()
     private var repos: [Repository]?
+    private var searchRepos: [Repository]?
     
     
     // MARK: - IBActions
@@ -46,6 +49,32 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
     }
     
     
+    // MARK: - RepositoriesInput
+    
+    func search(query: String?) {
+        
+        guard let query = query, query != "" else {
+            searchRepos = nil
+            return
+        }
+        
+        requestManager?.search(query: query, sort: .stars, order: .desc) { [weak self] (response: RepositorySearchReponse) in
+            guard let self = self else { return }
+            
+            self.searchRepos = response.items
+            
+            DispatchQueue.main.async {
+                self.output?.reloadView()
+            }
+        }
+    }
+    
+    func didEndSearching() {
+        searchRepos = nil
+        output?.reloadView()
+    }
+    
+    
     // MARK: - Initializers
     
     init(output: RepositoriesOutput?, requestManager: RepositoriesRequestable?) {
@@ -57,13 +86,13 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
 extension RepositoriesPresenter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repos?.count ?? 0
+        return searchRepos?.count ?? repos?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard
-            let repo = repos?[indexPath.row],
+            let repo = searchRepos?[indexPath.row] ?? repos?[indexPath.row],
             let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepositoryCell else {
             return UITableViewCell()
         }
