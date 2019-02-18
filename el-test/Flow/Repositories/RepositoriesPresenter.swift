@@ -6,11 +6,14 @@
 //  Copyright © 2019 Евгений Бижанов. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 protocol RepositoriesInput {
     func didLoad()
 }
 
-final class RepositoriesPresenter: RepositoriesInput {
+final class RepositoriesPresenter: NSObject, RepositoriesInput {
     
     // MARK: - IBOutlets
     // MARK: - Models
@@ -23,14 +26,43 @@ final class RepositoriesPresenter: RepositoriesInput {
     // MARK: - Fields
     
     private weak var output: RepositoriesOutput?
+    private let group = DispatchGroup()
+    private var repos: [Repository]?
     
     
     // MARK: - IBActions
     // MARK: - Functions
     
     func didLoad() {
-        requestManager?.get { (repositories: [Repository]) in
-            print(repositories)
+        requestManager?.repositories { [weak self] (repositories: [Repository]) in
+            guard let self = self else { return }
+            self.extractStars(forRepositories: repositories)
+        }
+    }
+    
+    fileprivate func extractStars(forRepositories repos: ([Repository])) {
+        
+        repos.forEach { repo in
+            self.group.enter()
+            self.requestManager?.get(path: repo.fullName) { (detailRepo: Repository) in
+                repo.stargazersCount = detailRepo.stargazersCount
+                self.group.leave()
+            }
+        }
+        
+        extractedStars(repos)
+    }
+    
+    fileprivate func extractedStars(_ repos: ([Repository])) {
+        group.notify(queue: DispatchQueue.main) { [weak self] in
+            
+            guard let self = self else { return }
+            
+            self.repos = repos.sorted { (first, second) in
+                first.stargazersCount > second.stargazersCount
+            }
+            
+            self.repos?.forEach( { print($0.stargazersCount) } )
         }
     }
     

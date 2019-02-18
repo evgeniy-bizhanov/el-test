@@ -17,7 +17,10 @@ final class RepositoriessAssembler: Assembly {
         }.inObjectScope(.container)
         
         container.register(RepositoriesInput.self) { r, output in
-            return RepositoriesPresenter(output: output, requestManager: r.resolve(RepositoriesRequestable.self))
+            return RepositoriesPresenter(
+                output: output,
+                requestManager: r.resolve(RepositoriesRequestable.self)
+            )
         }
     }
 }

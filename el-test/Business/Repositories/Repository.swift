@@ -8,28 +8,30 @@
 
 // MARK: - Repository
 
-struct Repository: Decodable {
+final class Repository: Decodable {
     
     /// Identifier
-    let id: Int
+    var id: Int = 0
     
     /// Name of the repository
-    let name: String
+    var name: String = ""
     
     /// Full name of the repository
-    let fullName: String
+    var fullName: String = ""
     
     /// Indicates that repository is private
-    let isPrivate: Bool
+    var isPrivate: Bool = false
     
     /// Url of the repository
-    let url: String
+    var url: String = ""
     
-    let description: String?
-    let score: Double
+    var description: String? = nil
+    var score: Double = 0.0
     
     /// Owner of the repository
-    let owner: User
+    var owner: User? = nil
+    
+    var stargazersCount: Int = 0
 }
 
 extension Repository {
@@ -43,9 +45,12 @@ extension Repository {
         case description
         case score
         case owner
+        case stargazersCount = "stargazers_count"
     }
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        
         let container = try decoder.container(keyedBy: DecodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
@@ -56,5 +61,6 @@ extension Repository {
         description = try? container.decode(String.self, forKey: .description)
         score = (try? container.decode(Double.self, forKey: .score)) ?? 0
         owner = try container.decode(User.self, forKey: .owner)
+        stargazersCount = (try? container.decode(Int.self, forKey: .stargazersCount)) ?? 0
     }
 }

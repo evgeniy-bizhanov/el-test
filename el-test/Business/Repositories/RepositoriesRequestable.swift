@@ -15,7 +15,10 @@ protocol RepositoriesRequestable {
     typealias Completion<T: Decodable> = (T) -> Void
     
     /// Gets list of repositories
-    func get<T>(completion: Completion<T>?)
+    func repositories<T>(completion: Completion<T>?)
+    
+    /// Gets detail info about repository
+    func get<T>(path: String, completion: Completion<T>?)
 }
 
 
@@ -23,9 +26,13 @@ protocol RepositoriesRequestable {
 
 extension RequestManager: RepositoriesRequestable {
     
-    func get<T>(completion: Completion<T>?) {
-        
-        let urlRequest = GetRequestRouter(url: url)
+    func repositories<T>(completion: Completion<T>?) {
+        let urlRequest = RepositoriesRequestRouter(url: url)
+        self.request(request: urlRequest, completion: completion)
+    }
+    
+    func get<T>(path: String, completion: Completion<T>?) {
+        let urlRequest = GetRequestRouter(url: url, path: path)
         self.request(request: urlRequest, completion: completion)
     }
 }
@@ -33,11 +40,22 @@ extension RequestManager: RepositoriesRequestable {
 
 // MARK: - RequestRouter
 
-fileprivate struct GetRequestRouter: RequestRouter {
+fileprivate struct RepositoriesRequestRouter: RequestRouter {
     
     let url: URL
     let httpMethod: HTTPMethod = .get
     let apiMethod: String = "/repositories"
+    
+    let parameters: Parameters? = nil
+}
+
+fileprivate struct GetRequestRouter: RequestRouter {
+    
+    let url: URL
+    let httpMethod: HTTPMethod = .get
+    var apiMethod: String { return "/repos/" + path }
+    
+    let path: String
     
     let parameters: Parameters? = nil
 }

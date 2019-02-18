@@ -8,19 +8,19 @@
 
 // MARK: - Owner
 
-struct User: Decodable {
+final class User: Decodable {
     
     /// Identifier
-    let id: Int
+    var id: Int = 0
     
     /// User login
-    let login: String
+    var login: String = ""
     
     /// Url of the user's avatar
-    let avatarUrl: String
+    var avatarUrl: String = ""
     
     /// Url of the user's profile
-    let url: String
+    var url: String = ""
 }
 
 extension User {
@@ -32,7 +32,9 @@ extension User {
         case url
     }
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        
         let container = try decoder.container(keyedBy: DecodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
