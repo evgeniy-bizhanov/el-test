@@ -14,5 +14,6 @@ class RepositoriesBuilder: AbstractModuleBuilder {
     
     override func resolve(resolver: Resolver) {
         viewController.input = resolver.resolve(RepositoriesInput.self, argument: viewController as RepositoriesOutput?)
+        viewController.router = resolver.resolve(RepositoriesRouter.self, argument: viewController as UIViewController)
     }
 }

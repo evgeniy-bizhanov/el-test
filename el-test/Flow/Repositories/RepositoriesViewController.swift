@@ -24,6 +24,7 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     // MARK: - Properties
     
     var input: RepositoriesInput?
+    var router: RepositoriesRouter?
     
     
     // MARK: - Fields
@@ -43,6 +44,7 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     }
     
     func setupTableView() {
+        tableView.delegate = self
         tableView.dataSource = input as? UITableViewDataSource
     }
     
@@ -53,6 +55,10 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
         searchController.searchBar.placeholder = "Поиск..."
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.prepare(for: segue, sender: sender)
     }
     
     
@@ -79,4 +85,12 @@ extension RepositoriesViewController: UISearchControllerDelegate {
     }
 }
 
-
+extension RepositoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let repo = input?.repository(at: indexPath.row) else {
+            return
+        }
+        
+        router?.toDetailView(of: repo)
+    }
+}

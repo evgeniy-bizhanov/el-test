@@ -78,6 +78,7 @@
                     <navigationItem key="navigationItem" title="Github Repositories" id="GIH-Ts-JSy"/>
                     <connections>
                         <outlet property="tableView" destination="iHO-cv-q16" id="Skh-mF-PEY"/>
+                        <segue destination="zNC-KZ-ZfI" kind="show" identifier="RepoDetailSegue" id="Glm-SG-E1W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFN-Kk-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,6 +89,59 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="69.715142428785612"/>
+        </scene>
+        <!--Repository View Controller-->
+        <scene sceneID="chj-nv-MN5">
+            <objects>
+                <viewController id="zNC-KZ-ZfI" customClass="RepositoryViewController" customModule="el_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xu-Rm-9gw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="65" translatesAutoresizingMaskIntoConstraints="NO" id="F3p-hB-caU">
+                                <rect key="frame" x="40.5" y="114" width="294" height="153"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="128"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-QZ-iv7">
+                                <rect key="frame" x="168.5" y="275" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-dG-kYi">
+                                <rect key="frame" x="8" y="304" width="359" height="363"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ylh-dG-kYi" firstAttribute="leading" secondItem="o3x-JM-Pzx" secondAttribute="leading" constant="8" id="3Pk-Y1-0fi"/>
+                            <constraint firstItem="F3p-hB-caU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o3x-JM-Pzx" secondAttribute="leading" constant="8" id="6td-wV-yTK"/>
+                            <constraint firstItem="F3p-hB-caU" firstAttribute="centerX" secondItem="6xu-Rm-9gw" secondAttribute="centerX" id="7XK-MG-gPx"/>
+                            <constraint firstItem="Ylh-dG-kYi" firstAttribute="top" secondItem="TJX-QZ-iv7" secondAttribute="bottom" constant="8" id="ACs-7L-8r0"/>
+                            <constraint firstItem="F3p-hB-caU" firstAttribute="top" secondItem="o3x-JM-Pzx" secondAttribute="top" constant="50" id="CKg-Yw-JgN"/>
+                            <constraint firstItem="TJX-QZ-iv7" firstAttribute="centerX" secondItem="6xu-Rm-9gw" secondAttribute="centerX" id="SkC-5l-Mvf"/>
+                            <constraint firstItem="Ylh-dG-kYi" firstAttribute="bottom" secondItem="o3x-JM-Pzx" secondAttribute="bottom" id="dwE-Ub-SJ3"/>
+                            <constraint firstItem="o3x-JM-Pzx" firstAttribute="trailing" secondItem="Ylh-dG-kYi" secondAttribute="trailing" constant="8" id="ghs-SU-ZGK"/>
+                            <constraint firstItem="TJX-QZ-iv7" firstAttribute="top" secondItem="F3p-hB-caU" secondAttribute="bottom" constant="8" id="tsq-Xr-zCZ"/>
+                            <constraint firstItem="o3x-JM-Pzx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="F3p-hB-caU" secondAttribute="trailing" constant="8" id="uA2-IU-Lb6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o3x-JM-Pzx"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Ylh-dG-kYi" id="3QZ-YU-afv"/>
+                        <outlet property="scoreLabel" destination="F3p-hB-caU" id="YCo-ba-SKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlE-dr-IWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zK1-ZH-gCO">

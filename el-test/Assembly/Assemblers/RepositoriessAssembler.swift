@@ -22,5 +22,9 @@ final class RepositoriessAssembler: Assembly {
                 requestManager: r.resolve(RepositoriesRequestable.self)
             )
         }
+        
+        container.register(RepositoriesRouter.self) { _, controller in
+            return RepositoriesRouter(controller: controller)
+        }
     }
 }

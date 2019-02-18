@@ -13,6 +13,7 @@ protocol RepositoriesInput {
     func didLoad()
     func search(query: String?)
     func didEndSearching()
+    func repository(at index: Int) -> Repository?
 }
 
 final class RepositoriesPresenter: NSObject, RepositoriesInput {
@@ -72,6 +73,10 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
     func didEndSearching() {
         searchRepos = nil
         output?.reloadView()
+    }
+    
+    func repository(at index: Int) -> Repository? {
+        return searchRepos?[index] ?? repos?[index]
     }
     
     
