@@ -10,9 +10,22 @@ import Foundation
 import UIKit
 
 protocol RepositoriesInput {
+    
     func didLoad()
+    
+    /// Sends the search query
+    ///
+    /// - Parameter query: Query string
     func search(query: String?)
+    
+    /// Completes the searching
     func didEndSearching()
+    
+    /// Returns repository object from internal array by index
+    ///
+    /// - Parameter index: Index of element to get
+    ///
+    /// - Returns: `Repository` object or nil if not exists
     func repository(at index: Int) -> Repository?
 }
 
@@ -38,6 +51,10 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
     // MARK: - Functions
     
     func didLoad() {
+        initialQuery()
+    }
+    
+    func initialQuery() {
         requestManager?.search(query: "stars:>0", sort: .stars, order: .desc) { [weak self] (response: RepositorySearchReponse) in
             guard let self = self else { return }
             
@@ -87,6 +104,9 @@ final class RepositoriesPresenter: NSObject, RepositoriesInput {
         self.requestManager = requestManager
     }
 }
+
+
+// MARK: - UITableViewDataSource
 
 extension RepositoriesPresenter: UITableViewDataSource {
     

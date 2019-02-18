@@ -14,7 +14,6 @@
 		7A2B50E022191282002E9B08 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2B50D922191282002E9B08 /* AppConfig.swift */; };
 		7AFF074F22191C810082B7DC /* Repositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF074E22191C810082B7DC /* Repositories.storyboard */; };
 		7AFF075122191E020082B7DC /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075022191E020082B7DC /* RepositoriesViewController.swift */; };
-		7AFF0756221920810082B7DC /* RepositoriesSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */; };
 		7AFF0759221927810082B7DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF0758221927810082B7DC /* User.swift */; };
 		7AFF075B22197B960082B7DC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075A22197B960082B7DC /* Repository.swift */; };
 		7AFF075D22197C8D0082B7DC /* RepositoriesRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */; };
@@ -47,7 +46,6 @@
 		7A2B50D922191282002E9B08 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		7AFF074E22191C810082B7DC /* Repositories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repositories.storyboard; sourceTree = "<group>"; };
 		7AFF075022191E020082B7DC /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
-		7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSearchResponse.swift; sourceTree = "<group>"; };
 		7AFF0758221927810082B7DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7AFF075A22197B960082B7DC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesRequestable.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			children = (
 				7AFF0797221AD5140082B7DC /* RepositorySearchReponse.swift */,
 				7AFF075A22197B960082B7DC /* Repository.swift */,
-				7AFF0755221920810082B7DC /* RepositoriesSearchResponse.swift */,
 				7AFF075C22197C8D0082B7DC /* RepositoriesRequestable.swift */,
 			);
 			path = Repositories;
@@ -399,7 +396,6 @@
 				7AFF079A221AE2810082B7DC /* RepositoriesRouter.swift in Sources */,
 				7AFF0782221983F40082B7DC /* RepositoriessAssembler.swift in Sources */,
 				7AFF078D221986BC0082B7DC /* RepositoriesBuilder.swift in Sources */,
-				7AFF0756221920810082B7DC /* RepositoriesSearchResponse.swift in Sources */,
 				7AFF076422197D340082B7DC /* AbstractRequestManager.swift in Sources */,
 				7A2B50DB22191282002E9B08 /* AppDelegate.swift in Sources */,
 				7AFF0789221984880082B7DC /* RequestFactoryHelper.swift in Sources */,

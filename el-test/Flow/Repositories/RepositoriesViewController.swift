@@ -9,6 +9,8 @@
 import UIKit
 
 protocol RepositoriesOutput: class {
+    
+    /// Reloads view, e.g. table view, collection view etc
     func reloadView()
 }
 
@@ -72,11 +74,17 @@ final class RepositoriesViewController: UIViewController, RepositoriesOutput {
     // MARK: - Initializers
 }
 
+
+// MARK: - UISearchResultsUpdating
+
 extension RepositoriesViewController: UISearchResultsUpdating {
     public func updateSearchResults(for searchController: UISearchController) {
         input?.search(query: searchController.searchBar.text)
     }
 }
+
+
+// MARK: - UISearchControllerDelegate
 
 extension RepositoriesViewController: UISearchControllerDelegate {
 
@@ -84,6 +92,9 @@ extension RepositoriesViewController: UISearchControllerDelegate {
         input?.didEndSearching()
     }
 }
+
+
+// MARK: - UITableViewDelegate
 
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

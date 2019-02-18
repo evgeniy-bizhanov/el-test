@@ -15,16 +15,5 @@ final class AppAssembler: Assembly {
         container.register(DispatchQueue.self) { _ in
             DispatchQueue.global(qos: .userInteractive)
         }
-        
-        container.register(OperationQueue.self, name: "RepositoriesStarsQueue") { _ in
-            return createOperationQueue()
-        }
     }
-}
-
-fileprivate func createOperationQueue() -> OperationQueue {
-    let operationQueue = OperationQueue()
-    operationQueue.maxConcurrentOperationCount = 3
-    operationQueue.qualityOfService = .userInteractive
-    return operationQueue
 }

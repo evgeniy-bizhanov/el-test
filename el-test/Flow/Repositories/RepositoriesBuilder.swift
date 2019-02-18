@@ -8,7 +8,7 @@
 
 import Swinject
 
-class RepositoriesBuilder: AbstractModuleBuilder {
+final class RepositoriesBuilder: AbstractModuleBuilder {
     
     @IBOutlet weak var viewController: RepositoriesViewController!
     

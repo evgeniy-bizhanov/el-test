@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryCell: UITableViewCell {
+final class RepositoryCell: UITableViewCell {
     
     // MARK: - IBOutlets
     

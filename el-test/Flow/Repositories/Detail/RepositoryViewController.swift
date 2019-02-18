@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryViewController: UIViewController {
+final class RepositoryViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var scoreLabel: UILabel!

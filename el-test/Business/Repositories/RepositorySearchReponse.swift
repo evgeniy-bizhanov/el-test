@@ -7,8 +7,14 @@
 //
 
 final class RepositorySearchReponse: Decodable {
+    
+    /// Total count search results
     var totalCount: Int = 0
+    
+    /// Indicates that the search reached the end
     var isIncomplete: Bool = false
+    
+    /// Repository items
     var items: [Repository] = []
 }
 
